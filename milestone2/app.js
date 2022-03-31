@@ -2,31 +2,21 @@ const app = new Vue ({
     el: "#app",
 
     data: {
-        indirizzi: [],
-        indirizzo: " ",
-        banana: "ciao sono banana"
+        albums: [],
     },
 
-    created() {
-        
-           for(let i=0; i<10; i++){
+    methods:  {
+        fetchData(){
 
-           
+            axios.get("./server.php")
+            .then((res)=>{
+                this.albums = res.data;
+            });
 
-                axios.get("https://flynn.boolean.careers/exercises/api/random/mail")
-                .then((res)=>{
-                    this.indirizzo = res.data.response;
-
-                    console.log(i);
-
-                    this.indirizzi.push(this.indirizzo);
-                    console.log(this.indirizzi);
-                });
-
-
-                console.log(this.indirizzi)
-           }
-
-        
+        }
     },
+
+    mounted(){
+        this.fetchData();
+    }
 })
