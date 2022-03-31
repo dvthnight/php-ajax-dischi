@@ -1,6 +1,6 @@
 <?php
 
-$album = [
+$albums = [
         
             [
                 "poster"=> "https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg",
@@ -74,4 +74,22 @@ $album = [
             ]
         ];
 
+        
+
+        foreach ($albums as $album) {
+
+            ?>
+            <div class="card">
+                <figure>
+                    <img src="<?php echo $album["poster"] ?>" alt="">
+                </figure>
+                <h3><?php echo $album["title"] ?></h3>
+                <h4> <?php echo $album["author"] ?> </h4>
+                <div class="year"><?php echo $album["year"] ?></div>
+            </div>
+
+            <?php
+        }
+
+            ?>
   
